@@ -4,26 +4,21 @@
     box-sizing: border-box;
 }
 a{
-    /* position: fixed; */
     color: white;
     text-decoration: none;
 }
 .nav-link, i{
     color:#9e2016;
-    /* background-color: aqua; */
 }
 .main{
-    background-image: url('./bg.jpg');
+    background-image: url('./images/bg.jpg');
     background-attachment: fixed;
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
     height: 100vh;
 }
 .overlay{
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;
-    /* position: absolute; */
 }
 p{
     margin-bottom: 30px;
@@ -35,23 +30,19 @@ p{
     padding:15px 20px;
     border-radius: 5px;
     margin-right: 20px;
-
 }
 .glass-btn{
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    /* border-radius: 16px; */
 }
 .bg{
-    background-image: url('./bg2.jpg');
+    background-image: url('./images/bg2.jpg');
     width: 50%;
     background-size: cover;
     height: 100%;
     position: relative;
-    /* height: 40vh; */
-
 }
 .bg::before {
   content: '';
@@ -70,12 +61,55 @@ p{
 .time-table{
     background-color: #fbf3e4;
     height: 60vh;
-
 }
 .time-table p{
     width: 50%;
     border-bottom: 1px solid gray;
+}
+.category-container{
+    width: 25%;
+    height: 85vh;
 
+}
+.category-container li{
+    margin: 20px 0px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.category-container a{
+    color: #9e2016;
+}
+.active, .active i, .active a{
+    background-color: #9e2016;
+    color: white;
+}
+.items-container{
+    width: 75%;
+    height: 85vh;
+    overflow-y: scroll;
+}
+.item-card{
+    width: 29%;
+    height: 70vh;
+    margin: 30px 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.item-card img{
+    width: 100%;
+    height: 50%;
+    background-color: aqua;
+}
+.card-body{
+    height: 35%;
+}
+.add-btn{
+    float: right;
+    margin-right: 20px;
+    padding:  12px 15px;
+    border: none;
+    background-color: #9e2016;
+    border-radius: 15px;
 }
 footer{
     background-color: #343026;

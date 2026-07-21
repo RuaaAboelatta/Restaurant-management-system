@@ -26,4 +26,6 @@
         </div>
         <div class="bg"></div>
     </div>
+    @include('layout.footer')
+
 @stop

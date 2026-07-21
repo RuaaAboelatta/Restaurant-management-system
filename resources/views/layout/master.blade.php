@@ -9,11 +9,9 @@
     <!-- Bootstrap Icons -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('/style.css') }}"><body>
-    @include('layout.navbar')
-    @yield('content')
-    @include('layout.footer')
-
-    
-</body>
+    <link rel="stylesheet" href="{{ asset('/style.css') }}">
+    <body>
+        @include('layout.navbar')
+        @yield('content')
+    </body>
 </html>
