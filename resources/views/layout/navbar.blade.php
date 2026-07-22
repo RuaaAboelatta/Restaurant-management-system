@@ -1,12 +1,9 @@
-<nav class="navbar navbar-expand-sm  fixed-top bg-light justify-content-between align-items-center shadow px-5">
-    <h2 class="navbar-brand">
-      restaurant
-    </h2>
+<nav class="navbar navbar-expand-sm  fixed-top bg-light justify-content-between align-items-center shadow px-5 py-3">
+    
   <!-- Links -->
   <ul class="navbar-nav">
-    
     <li class="nav-item">
-      <i class="fa-solid fa-house  d-inline"></i>
+      <i class="fa-solid fa-house  d-inline "></i>
       <a class="nav-link  d-inline " href="/">Home</a>
     </li>
     <li class="nav-item">
@@ -17,8 +14,37 @@
       <i class="fa-solid fa-calendar d-inline ms-5"></i>
       <a class="nav-link d-inline" href="/reservation">Reservation</a>
     </li>
+    <li class="nav-item">
+      <i class="fa-solid fa-cart-arrow-down ms-5"></i>
+      <a class="nav-link  d-inline " href="/cart">Cart</a>
+    </li>
   </ul>
-  <a href="/cart">
-    <i class="fa-solid fa-cart-arrow-down"></i>
-  </a>
+  @guest
+  <div>
+    <a href="/login" class='orange-btn py-2 px-4'>Login</a>
+    <a href="/register" class='orange-btn py-2 px-4'>Register</a>
+  </div>
+  @endguest
+  @auth
+  <div class="d-flex justify-content-between align-items-center">
+      @if(Auth::user()->role === 'admin')
+      <li class="list-unstyled">
+      <i class="fa-solid fa-table-columns"></i>
+      <a href="{{ route('admin.dashboard') }}" class="text-dark">dashboard</a>
+    </li>
+      
+    @endif
+  <span class="px-2 border-start mx-2">
+    Hi there, {{Auth::user()->name}}
+  </span>
+    
+
+  <form action="/logout" method="POST">
+    @csrf
+    <button class="orange-btn p-2">Logout</button>
+  </form>
+  </div>
+  
+  @endauth
+  
 </nav>

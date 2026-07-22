@@ -40,7 +40,7 @@
             <div class="items-container d-flex flex-wrap justify-content-between py-5">
                 @foreach($items as $item)
                     <div class="item-card border">
-                        <img src="{{ asset('images/' . $item->image) }}" alt="#">
+                        <img src="{{ asset($item->image) }}" alt="#">
                         <div class="card-body p-3">
                             <div class='d-flex justify-content-between'>
                                 <h3 class=''>{{ $item->name }}</h3>
