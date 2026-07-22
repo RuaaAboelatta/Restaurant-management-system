@@ -49,9 +49,13 @@
                             <p>{{ $item->description }}</p>
                            
                         </div>
-                        <button class='add-btn'>
-                            <i class="fa-solid fa-plus text-light"></i>
-                        </button>
+                        <form action="{{ route('cart.add') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="menu_item_id" value="{{ $item->id }}">
+                            <button class='add-btn'>
+                                <i class="fa-solid fa-plus text-light"></i>
+                            </button>
+                        </form>
                     </div>
                 @endforeach
             </div>

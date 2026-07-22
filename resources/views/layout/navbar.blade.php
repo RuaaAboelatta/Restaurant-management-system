@@ -28,10 +28,16 @@
   @auth
   <div class="d-flex justify-content-between align-items-center">
       @if(Auth::user()->role === 'admin')
-      <li class="list-unstyled">
+      <ul class="navbar-nav">
+        <li class="nav-item">
       <i class="fa-solid fa-table-columns"></i>
-      <a href="{{ route('admin.dashboard') }}" class="text-dark">dashboard</a>
-    </li>
+      <a href="{{ route('admin.dashboard') }}" class="text-dark">Dashboard</a>
+      </li>
+      <li class="nav-item mx-3">
+      <i class="fa-solid fa-clock"></i>
+      <a href="{{ route('admin.bookings') }}" class="text-dark ">Bookings</a>
+      </li>
+      </ul>
       
     @endif
   <span class="px-2 border-start mx-2">

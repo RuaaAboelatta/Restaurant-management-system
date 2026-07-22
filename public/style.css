@@ -132,6 +132,17 @@ label{
 .add-btn{
     float: right;
 }
+.reservation{
+    width: 65%;
+}
+.table-layout{
+    width: 30%;
+    height: 90vh;
+}
+.form-bg{
+    background-color: #9e2016;
+    border-radius: 15px;
+}
 footer{
     background-color: #343026;
 }

@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Items;
+use App\Models\Reservation;
+
 
 class AdminController extends Controller
 {
@@ -87,5 +89,11 @@ class AdminController extends Controller
         $menuItem->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Menu item deleted successfully!');
+    }
+
+    public function showBookings()
+    {
+        $bookings = Reservation::all();
+        return view('admin.bookings', compact('bookings'));  
     }
 }
