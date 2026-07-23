@@ -8,7 +8,7 @@
 <body class='pt-5'>
     <div class="container-fluid py-5 d-flex">
         <div class="category-container p-5">
-            <h3>CATEGORIES</h3>
+            <h2 class="main-heading">Categories</h2>
             <ul class='list-unstyled'>
                 <li class="{{ request()->route('category') == 'all' ? 'active' : '' }}">
                     <i class="fa-solid fa-border-all"></i>
