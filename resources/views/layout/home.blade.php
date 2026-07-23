@@ -16,7 +16,7 @@
                     Order Now
                     <i class="fa-solid fa-arrow-right text-light"></i>
                 </a>
-                <a href="/reservations" class='glass-btn btn-hover'>Book Table</a>
+                <a href="/reservation" class='glass-btn btn-hover'>Book Table</a>
             </div>
         </div>
     </div>

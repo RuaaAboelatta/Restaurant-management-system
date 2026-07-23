@@ -12,7 +12,7 @@
                         <option value="">Select a table</option>
                         @foreach($tables as $table)
                             <option value="{{ $table->id }}" {{ old('table_id') == $table->id ? 'selected' : '' }}>
-                                Table {{ $table->id }} - Capacity: {{ $table->capacity ?? 'N/A' }}
+                                Table {{ $table->id }}
                             </option>
                         @endforeach
                     </select>
