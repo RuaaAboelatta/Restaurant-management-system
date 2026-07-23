@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\CheckoutController;
 
 
 // NAVIGATION
@@ -18,6 +19,7 @@ Route::get('/menu', function () {
 Route::get('/reservation', function () {
     return view('layout.reservation');
 });
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('auth');
 
 // CART
 Route::get('/cart',[CartController::class, 'showCart'])->name('cart.index');
@@ -58,6 +60,7 @@ Route::middleware('admin')->controller(AdminController::class)->group(function()
     Route::delete('/delete/{id}', 'deleteItem')->name('admin.delete');
 
     Route::get('/bookings', 'showBookings')->name('admin.bookings');
+    Route::get('/orders', 'showOrders')->name('admin.orders');
 });
 
 

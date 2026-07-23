@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Items;
 use App\Models\Reservation;
+use App\Models\Order;
+
 
 
 class AdminController extends Controller
@@ -95,5 +97,14 @@ class AdminController extends Controller
     {
         $bookings = Reservation::all();
         return view('admin.bookings', compact('bookings'));  
+    }
+    
+ public function showOrders()
+    {
+        $orders = Order::with(['user', 'items.menuItem'])
+                      ->orderBy('created_at', 'desc')
+                      ->get();
+        
+        return view('admin.orders', compact('orders'));
     }
 }

@@ -2,7 +2,7 @@
 @section('title', 'Cart')
 @section('content')
     
-<div class="container py-4">
+<div class="container pt-5 mt-5">
     <h2 class="mb-4">Your Cart</h2>
 
     @if(session('success'))
@@ -24,7 +24,7 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-0">
                         @foreach($cart as $id => $item)
-                            <div class="row p-3 border-bottom align-items-center">
+                            <div class="row py-3 border-bottom align-items-center order-row">
                                 <div class="col-1">
                                     <span class="text-muted">{{ $loop->iteration }}</span>
                                 </div>
@@ -44,16 +44,7 @@
                                 <div class="col-2 text-end">
                                     <strong>${{ number_format($item['price'] * $item['quantity'], 2) }}</strong>
                                 </div>
-                                <div class="col-2 text-end">
-                                    <form action="{{ route('cart.remove', $id) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" 
-                                                onclick="return confirm('Remove item?')">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                
                             </div>
                         @endforeach
                     </div>
@@ -93,6 +84,10 @@
                         
                     </div>
                 </div>
+                <form action="{{ route('checkout.store') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-success">Checkout</button>
+                </form>
             </div>
         </div>
     @endif

@@ -143,6 +143,10 @@ label{
     background-color: #9e2016;
     border-radius: 15px;
 }
+.order-row{
+    width: 90%;
+    margin: auto;
+}
 footer{
     background-color: #343026;
 }

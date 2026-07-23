@@ -37,6 +37,10 @@
       <i class="fa-solid fa-clock"></i>
       <a href="{{ route('admin.bookings') }}" class="text-dark ">Bookings</a>
       </li>
+      <li class="nav-item mx-3">
+      <i class="fa-solid fa-dollar-sign"></i>
+      <a href="{{ route('admin.orders') }}" class="text-dark ">Orders</a>
+      </li>
       </ul>
       
     @endif
