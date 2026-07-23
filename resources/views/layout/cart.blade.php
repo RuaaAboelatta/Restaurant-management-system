@@ -3,7 +3,7 @@
 @section('content')
     
 <div class="container pt-5 mt-5">
-    <h2 class="mb-4">Your Cart</h2>
+    <h2 class="mb-4 main-heading">Your Cart</h2>
 
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show">
@@ -13,13 +13,12 @@
     @endif
 
     @if(empty($cart))
-        <div class="text-center py-5">
-            <h4>Your cart is empty</h4>
-            <a href="/menu" class="btn btn-primary mt-3">Browse Menu</a>
+        <div class="d-flex justify-content-between py-5">
+            <h4 class="mb-4">Your cart is empty</h4>
+            <a href="/menu" class="orange-btn">Browse Menu</a>
         </div>
     @else
         <div class="row">
-            <!-- Cart Items -->
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-body p-0">
@@ -64,10 +63,9 @@
                 </div>
             </div>
 
-            <!-- Order Summary -->
             <div class="col-lg-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-danger text-white">
                         <h5 class="mb-0">Order Summary</h5>
                     </div>
                     <div class="card-body">
@@ -84,11 +82,11 @@
                         
                     </div>
                 </div>
-                <form action="{{ route('checkout.store') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-success">Checkout</button>
-                </form>
             </div>
+            <form action="{{ route('checkout.store') }}" method="POST">
+                @csrf
+                <button type="submit" class="orange-btn mt-5" style="float: right;">Checkout</button>
+            </form>
         </div>
     @endif
 </div>

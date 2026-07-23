@@ -44,7 +44,7 @@
                         <div class="card-body p-3">
                             <div class='d-flex justify-content-between'>
                                 <h3 class=''>{{ $item->name }}</h3>
-                                <p class="price pt-2">${{ number_format($item->price, 2) }}</p>
+                                <p class="price pt-2 main-heading">${{ number_format($item->price, 2) }}</p>
                             </div>
                             <p>{{ $item->description }}</p>
                            

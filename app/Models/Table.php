@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Table extends Model
 {
     protected $fillable = [
-        'number',
+        'name',
         'capacity',
-        'status' 
+        'status'
     ];
-    
+
     public function reservations()
     {
         return $this->hasMany(Reservation::class);

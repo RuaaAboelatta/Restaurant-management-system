@@ -8,50 +8,50 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\CheckoutController;
 
-
 // NAVIGATION
 Route::get('/', function () {
     return view('layout.home');
-});
-Route::get('/menu', function () {
-    return view('layout.menu');
-});
-Route::get('/reservation', function () {
-    return view('layout.reservation');
-});
-Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('auth');
+})->name('home');
+
+Route::get('/menu', [MenuController::class, 'showItems'])->name('menu.index');
+Route::get('/menu/category/{category}', [MenuController::class, 'filterItems'])->name('menu.category');
+
+Route::get('/reservation', [ReservationController::class, 'showTables'])->name('reservations.index');
 
 // CART
-Route::get('/cart',[CartController::class, 'showCart'])->name('cart.index');
-Route::post('/cart/add',[CartController::class, 'addToCart'])->name('cart.add');
-Route::put('/cart/update/{id}',[CartController::class, 'updateQuantity'])->name('cart.update');
-Route::delete('/cart/remove/{id}',[CartController::class, 'removeFromCart'])->name('cart.remove');
-Route::delete('/cart/clear',[CartController::class, 'clearCart'])->name('cart.clear');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::put('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::delete('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
 
 Route::get('/order', function () {
     return view('layout.order');
 })->middleware('auth');
-Route::get('/menu', [MenuController::class, 'showItems'])->name('menu.index');
-Route::get('/menu/category/{category}', [MenuController::class, 'filterItems'])->name('menu.category');
 
 
-// AUTHINTICATION
-Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::middleware('guest')->controller(AuthController::class)->group(function(){
+// AUTHENTICATION
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware('guest')->controller(AuthController::class)->group(function () {
     Route::get('/register', 'showRegister')->name('show.register');
     Route::get('/login', 'showLogin')->name('show.login');
     Route::post('/register', 'register')->name('register');
     Route::post('/login', 'login')->name('login');
-    
-});
-Route::middleware('auth')->controller(ReservationController::class)->group(function(){
-    Route::get('/reservation', 'showTables')->name('reservations.index');
-    Route::post('/reservation/book', 'store')->name('reservations.store');
 });
 
+Route::middleware('auth')->controller(ReservationController::class)->group(function () {
+    Route::post('/reservation/book', 'store')->name('reservations.store');
+});
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('auth');
+
+
+
+
 // AUTHORIZATION
-Route::middleware('admin')->controller(AdminController::class)->group(function(){
+Route::middleware('admin')->controller(AdminController::class)->group(function () {
     Route::get('/dashboard', 'showDashboard')->name('admin.dashboard');
     Route::get('/create', 'createItem')->name('admin.create');
     Route::post('/store', 'storeItem')->name('admin.store');
@@ -62,7 +62,4 @@ Route::middleware('admin')->controller(AdminController::class)->group(function()
     Route::get('/bookings', 'showBookings')->name('admin.bookings');
     Route::get('/orders', 'showOrders')->name('admin.orders');
 });
-
-
-
 

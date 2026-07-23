@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItems;
 
 class CheckoutController extends Controller
 {
-    public function store(Request $request)
+    public function store()
     {
         $cart = session()->get('cart', []);
-        
+
         if (empty($cart)) {
             return redirect()->back()->with('error', 'Your cart is empty!');
         }

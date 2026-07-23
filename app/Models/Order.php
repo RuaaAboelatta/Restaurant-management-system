@@ -10,8 +10,8 @@ class Order extends Model
         'user_id',
         'total',
         'status'
-
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -21,5 +21,4 @@ class Order extends Model
     {
         return $this->hasMany(OrderItems::class);
     }
-
 }

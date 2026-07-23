@@ -2,7 +2,7 @@
 @section('title', 'Bookings')
 @section('content')
 <div class="container mt-5 pt-5">
-    <h2>Reservations</h2>
+    <h2 class="main-heading">Reservations</h2>
     <hr>
 
     @if($bookings->count() > 0)

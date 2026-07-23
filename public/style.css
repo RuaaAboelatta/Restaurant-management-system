@@ -1,152 +1,223 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: large;
 }
-a{
+a {
     color: white;
     text-decoration: none;
 }
-.nav-link, i{
-    color:#9e2016;
+
+.nav-link,
+i {
+    color: #9e2016;
 }
-.main{
-    background-image: url('./images/bg.jpg');
+
+.main {
+    background-image: url('./images/bg1.jpg');
     background-attachment: fixed;
     height: 100vh;
 }
-.overlay{
+
+.overlay {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;
 }
-p{
+.main-heading {
+    color: #9e2016;
+    font-family: "Dancing Script", cursive;
+    font-weight: 800;
+}
+p {
     margin-bottom: 30px;
 }
-.orange-btn, .glass-btn{
-    background-color: #c0392b;
+
+.orange-btn,
+.glass-btn {
+    background-color: #9e2016;
     color: white;
     text-decoration: none;
-    padding:15px 20px;
+    padding: 15px 20px;
     border-radius: 5px;
     margin-right: 20px;
     border: none;
+    transition: 0.5s;
 }
-.glass-btn{
+
+.glass-btn {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: 0.5s;
 }
-.bg{
+.btn-hover:hover{
+    transform: scale(1.1, 1.1);
+    font-size: larger;
+}
+.bg {
     background-image: url('./images/bg2.jpg');
     width: 50%;
     background-size: cover;
     height: 100%;
     position: relative;
 }
+
 .bg::before {
-  content: '';
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(251,243,228,1) 0%, rgba(255,255,255,0) 70%);
-  pointer-events: none; 
+    content: '';
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(251, 243, 228, 1) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
 }
-.dining-hours{
+
+.dining-hours {
     width: 40%;
 }
-.time-table{
+
+.time-table {
     background-color: #fbf3e4;
     height: 60vh;
 }
-.time-table p{
+
+.time-table p {
     width: 50%;
     border-bottom: 1px solid gray;
 }
-.category-container{
+
+.category-container {
     width: 25%;
     height: 85vh;
-
 }
-.category-container li{
+
+.category-container li {
     margin: 20px 0px;
     padding: 15px;
     border-radius: 10px;
+    transition: 0.5s;
+
 }
-.category-container a{
+
+.category-container a {
     color: #9e2016;
+    transition: 0.5s;
 }
-.active, .active i, .active a{
+.category-container li:hover{
     background-color: #9e2016;
     color: white;
+    transition: 0.5s;
 }
-.items-container{
+.category-container li:hover a, .category-container li:hover i{
+    color: white;
+    transition: 0.5s;
+}
+
+.active,
+.active i,
+.active a {
+    background-color: #9e2016;
+    color: white;
+    transition: 0.5s;
+
+}
+
+.items-container {
     width: 75%;
     height: 85vh;
     overflow-y: scroll;
 }
-.item-card{
+
+.item-card {
     width: 29%;
     height: 70vh;
     margin: 30px 20px;
     border-radius: 20px;
     overflow: hidden;
+    transition: 0.5s;
 }
-.item-card img{
+.item-card:hover{
+    transform: translateY(-10px);
+}
+
+.item-card img {
     width: 100%;
     height: 50%;
+    transition: 0.5s;
 }
-.card-body{
+.item-card:hover img{
+    transform: scale(1.1, 1.1);
+}
+.card-body {
     height: 35%;
 }
-.add-btn{
+
+.add-btn {
     float: right;
     margin-right: 20px;
-    padding:  12px 15px;
+    padding: 12px 15px;
     border: none;
     background-color: #9e2016;
     border-radius: 15px;
+    transition: 0.5s;
 }
-label{
+.add-btn:hover, .orange-btn:hover{
+    background-color:#c0392b;
+}
+label {
     color: white;
     margin-bottom: 10px;
 }
-.input-form{
+
+.input-form {
     width: 35%;
     height: 100vh;
     background-color: #9e2016;
     margin-top: 0;
 }
-.form-head{
+
+.form-head {
     margin-top: 80px;
     margin-bottom: 40px;
     text-align: center;
 }
-.login-img{
+
+.login-img {
     width: 55%;
 }
-.add-btn{
+
+.add-btn {
     float: right;
 }
-.reservation{
+
+.reservation {
     width: 65%;
 }
-.table-layout{
+
+.table-layout {
     width: 30%;
     height: 90vh;
 }
-.form-bg{
+
+.form-bg {
     background-color: #9e2016;
     border-radius: 15px;
 }
-.order-row{
+
+.order-row {
     width: 90%;
     margin: auto;
 }
-footer{
+
+footer {
     background-color: #343026;
+}
+footer li a{
+    transition: 0.5s;
 }

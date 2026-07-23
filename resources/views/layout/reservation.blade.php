@@ -37,7 +37,7 @@
                     @enderror
                 </div>
                 
-                <button type="submit" class="glass-btn mt-4">Submit</button>
+                <button type="submit" class="glass-btn mt-4 btn-hover">Submit</button>
             </form>
             
             @if(session('error'))

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -6,21 +7,19 @@ use App\Models\Items;
 use App\Models\Reservation;
 use App\Models\Order;
 
-
-
 class AdminController extends Controller
 {
     public function showDashboard()
     {
         $menuItems = Items::all();
-        return view('admin.dashboard', compact('menuItems'));  
+        return view('admin.dashboard', compact('menuItems'));
     }
-    
+
     public function createItem()
     {
-        return view('admin.createItem');  
+        return view('admin.createItem');
     }
-    
+
     public function storeItem(Request $request)
     {
         $validated = $request->validate([
@@ -40,9 +39,9 @@ class AdminController extends Controller
 
         Items::create($validated);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Menu item created successfully!');  
+        return redirect()->route('admin.dashboard')->with('success', 'Menu item created successfully!');
     }
-    
+
     public function editItem($id)
     {
         $menuItem = Items::findOrFail($id);
@@ -66,7 +65,7 @@ class AdminController extends Controller
             if ($menuItem->image && file_exists(public_path($menuItem->image))) {
                 unlink(public_path($menuItem->image));
             }
-            
+
             // Upload new image
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
@@ -82,12 +81,12 @@ class AdminController extends Controller
     public function deleteItem($id)
     {
         $menuItem = Items::findOrFail($id);
-        
+
         // Delete image if exists
         if ($menuItem->image && file_exists(public_path($menuItem->image))) {
             unlink(public_path($menuItem->image));
         }
-        
+
         $menuItem->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Menu item deleted successfully!');
@@ -96,15 +95,15 @@ class AdminController extends Controller
     public function showBookings()
     {
         $bookings = Reservation::all();
-        return view('admin.bookings', compact('bookings'));  
+        return view('admin.bookings', compact('bookings'));
     }
-    
- public function showOrders()
+
+    public function showOrders()
     {
         $orders = Order::with(['user', 'items.menuItem'])
-                      ->orderBy('created_at', 'desc')
-                      ->get();
-        
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('admin.orders', compact('orders'));
     }
 }

@@ -1,10 +1,9 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container">
-    <h1>Admin Dashboard</h1>
+<div class="container pt-5">
     <div class="d-flex justify-content-between align-items-center">
-        <h2>Dashboard</h2>
+        <h2 class="main-heading">Dashboard</h2>
         <a href="{{ route('admin.create') }}" class="btn btn-success my-5">Add New Item</a>
     </div>
     @if(session('success'))

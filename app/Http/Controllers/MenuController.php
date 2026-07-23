@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Items;
 
 class MenuController extends Controller
 {
-    public function showItems() {
+    public function showItems()
+    {
         $items = Items::all();
         return view('layout.menu', compact('items'));
     }
-    public function filterItems($category){
+
+    public function filterItems($category)
+    {
         $categoryMap = [
             'all' => null,
             'appetizers' => 'appetizers',
             'mains' => 'mains',
             'desserts' => 'desserts',
-            'drinks' => 'beverages'  
+            'drinks' => 'beverages'
         ];
 
         if ($category === 'all') {
@@ -27,6 +29,5 @@ class MenuController extends Controller
         }
 
         return view('layout.menu', compact('items'));
-
     }
 }
